@@ -772,6 +772,7 @@ class _DropDownTextFieldState extends State<DropDownTextField>
                       listTileHeight: _listTileHeight,
                       dropDownList: _dropDownList,
                       listTextStyle: _listTileTextStyle,
+                      textStyle: widget.textStyle,
                       onChanged: (item) {
                         setState(() {
                           _cnt.text = item.name;
@@ -883,6 +884,7 @@ class SingleSelection extends StatefulWidget {
       this.listTextStyle,
       this.searchDecoration,
       required this.listPadding,
+      this.textStyle,
       this.clearIconProperty})
       : super(key: key);
   final List<DropDownValueModel> dropDownList;
@@ -901,8 +903,10 @@ class SingleSelection extends StatefulWidget {
   final Function? onSearchTap;
   final Function? onSearchSubmit;
   final TextStyle? listTextStyle;
+  final TextStyle? textStyle;
   final ListPadding listPadding;
   final InputDecoration? searchDecoration;
+
   final IconProperty? clearIconProperty;
 
   @override
@@ -974,6 +978,7 @@ class _SingleSelectionState extends State<SingleSelection> {
                     widget.onSearchTap!();
                   }
                 },
+                style: widget.textStyle,
                 decoration: _inpDec.copyWith(
                   hintText: _inpDec.hintText ?? 'Search Here...',
                   suffixIcon: GestureDetector(
